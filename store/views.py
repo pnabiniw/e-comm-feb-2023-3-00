@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render
 from .models import *
 
@@ -29,3 +30,11 @@ def checkout(request):
         items = []
     context = {"items": items, "order": order}
     return render(request, 'store/checkout.html', context)
+
+
+def update_item(request):
+    print("Landed in update item")
+    response = {
+        "message": "Updated"
+    }
+    return JsonResponse(response)
